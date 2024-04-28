@@ -41,15 +41,18 @@ const TodoList = () => {
   };
 
   return (
-    <div>
-      <h1>Todo List</h1>
+    <div className="max-w-md mx-auto mt-8 bg-gray-300 p-4 border-gray-700 rounded shadow-md w-full scroll-margin-top:50px; ">
+      <h1 className=" text-center text-yellow-300 text-2xl font-bold mb-4">Todo List</h1>
+      <div className="flex mb-4">
       <input
+      className="flex-grow border-b-2 border-gray-400 outline-none focus:border-gray-700 mr-2 py-2 px-3"
         type='text'
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
         placeholder='Add a new task'
       />
-      <button onClick={addTask}>Add</button>
+      <button className="bg-gray-500 text-white px-4 py-2 rounded-md  hover:bg-green-600" onClick={addTask}>Add</button>
+      </div>
       <ul>
         {tasks.map((task) => (
           <TaskItem

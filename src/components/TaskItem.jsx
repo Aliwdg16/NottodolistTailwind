@@ -22,7 +22,7 @@ const TaskItem = ({ task, toggleTask, removeTask, updateTask }) => {
   };
 
   return (
-    <li style={{ textDecoration: task.done ? 'line-through' : 'none' }}>
+    <li className="flex justify-between items-center border-b border-gray-300 py-2 cursor-pointer bg-gradient-to-r from-gray-600 to-gray-50;" style={{ textDecoration: task.done ? 'line-through' : 'none' }}>
       <input type='checkbox' checked={task.done} onChange={handleToggleDone} />
       {edit ? (
         <input
@@ -37,11 +37,11 @@ const TaskItem = ({ task, toggleTask, removeTask, updateTask }) => {
         <span>{task.title}</span>
       )}
       {edit ? (
-        <button onClick={handleEdit}>Save</button>
+        <button className="text-blue-500 hover:text-green-600" onClick={handleEdit}>Save</button>
       ) : (
-        <button onClick={() => setEdit(true)}>Edit</button>
+        <button className="text-blue-600 hover:text-red-700" onClick={() => setEdit(true)}>Edit</button>
       )}
-      <button onClick={() => removeTask(task.id)}>Remove</button>
+      <button className="text-red-300 hover:text-red-600" onClick={() => removeTask(task.id)}>Remove</button>
     </li>
   );
 };
